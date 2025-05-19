@@ -268,7 +268,7 @@ footer {
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate-reverse;}
 
-.greet .wiz {
+.greet .wiz p {
 	float: right;
 	position: relative;
 	width: 216px;
