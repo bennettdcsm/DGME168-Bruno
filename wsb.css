@@ -259,7 +259,8 @@ footer {
 	color: #525252;
 	line-height: 24px;
 	font-size: 18px;
-	text-align: left;}
+	text-align: left;
+	float: left;}
 
 .greet b {
 	color: #8a2eb7;
@@ -268,7 +269,7 @@ footer {
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate-reverse;}
 
-.greet .wiz p {
+.greet .wiz {
 	float: right;
 	position: relative;
 	width: 216px;
