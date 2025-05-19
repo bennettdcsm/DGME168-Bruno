@@ -1,0 +1,1768 @@
+@charset "UTF-8";
+
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* ------- PAGE COLORS -------
+DARKEST GREY (Header Color): #303030
+DARK GREY (Text Color): #525252
+MEDIUM GREY (Background & Nav Color): #868686
+LIGHT GREY (Background & Card Color): #d0d0d0
+DAMN NEAR WHITE GREY (Content Container Color): #f5f5f5
+*/
+
+
+* {
+	font-family: 'Oswald';}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #d0d0d0;
+	text-align: center;}
+	
+.flex-wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 105vh;
+}
+
+/* ------------------------------------------------ ANIMATION PRESETS ---------------------------------------------- */
+
+@keyframes new {
+	transform: rotate(180deg);
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes glow {
+    from {
+        color: #8a2eb7;
+		text-shadow: 0px 0px 0px #e38cff
+    }
+    to {
+        color: #a741cd;
+		text-shadow: 0px 0px 5px #e38cff
+    }
+}
+	
+/* ---------------------------------------------------- HEADER ---------------------------------------------------- */
+
+header {
+	background-color: #303030;
+	padding-top: 0.3rem;}
+
+header img {
+	position: relative;
+	top: 16px;
+	max-width: 650px;}
+
+/* ---------------------------------------------------- NAV BAR ---------------------------------------------------- */
+.navbar {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	background-color: #868686;}
+
+.navbar > a {
+	padding: 0.6rem;
+	padding-top: 1rem;
+	font-family: Anton;
+	font-size: 2em;
+	text-align: center;
+	color: #525252;}
+	
+.navbar div:hover {
+	filter: brightness(60%);}
+	
+/* ------------------ HOME BUTTON ------------------ */	
+	
+.home-nav {
+	background-image: url(images/nav_home.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 8rem;
+	height: 3rem;}
+	
+/* ------------------ WORKS BUTTON ------------------ */	
+	
+.works-nav {
+	background-image: url(images/nav_works.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 9.2rem;
+	height: 2.7rem;}
+	
+/* ------------------ SHOP BUTTON ------------------ */	
+	
+.shop-nav {
+	background-image: url(images/nav_shop.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 7.4rem;
+	height: 3rem;}
+	
+/* ------------------ ABOUT BUTTON ------------------ */	
+
+.about-nav {
+	background-image: url(images/nav_about.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 8.4rem;
+	height: 2.7rem;}
+
+/* ------------------ SERVICES BUTTON ------------------ */	
+	
+.services-nav {
+	background-image: url(images/nav_services.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 11rem;
+	height: 3.1rem;}
+	
+/* ------------------ CONTACT BUTTON ------------------ */	
+	
+.contact-nav {
+	background-image: url(images/nav_contact.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 10.9rem;
+	height: 3.3rem;}
+	
+a img {
+	display: inline-block;
+	width: 140px;}
+	
+/* ---------------------------------------------------- FOOTER ---------------------------------------------------- */
+footer {
+	width: 100%;
+	padding: 0rem;
+	font-size: 14px;
+	font-weight: bold;
+	color: #525252;
+	background-color: #868686;
+	margin-top: auto;}
+	
+.ftr-row {
+	display: flex;
+	flex-wrap: nowrap;
+	padding-top: 10px;
+	height: 250px;
+	gap: 10px;
+	align-items: flex-start;
+	justify-content: space-between;}
+		
+.ftr-col-left {
+	height: 12rem;
+	flex-basis: 33%;}
+	
+.ftr-col-left img {
+	padding-left: 20px;
+	padding-top: 20px;
+	width: 20rem;
+	height: auto;
+	-webkit-animation-name: contact;
+    -webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate-reverse;}
+	
+.ftr-col-mid {
+	bottom: 300px;
+	width: 20rem;
+	height: auto;
+	flex-basis: 60%;
+	margin-top: auto;
+	padding: 20px;}
+	
+.ftr-col-right {
+	flex-basis: 20%;
+	padding-top: 50px;}
+
+.soc-navbar {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;}
+
+.soc-navbar a img {
+	padding-top: 10px;
+	width: 5.5rem;
+	height: auto;
+	-webkit-animation-name: none;}
+	
+.soc-navbar a img:hover {
+	filter: brightness(70%);}
+	
+.soc-navbar a img:active {
+	filter: brightness(70%);}
+
+/* ---------------------------------------------------- EXTRA ---------------------------------------------------- */
+
+.ratton {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+    min-width: 100px; 
+    min-height: 100px; 
+    background-image: url(images/rat.png); 
+    background-size: cover;
+    transition: background-image 0.1s ease-in-out; }
+	
+.ratton:hover {
+	background-image: url(images/ratspinning.gif);}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------- */		
+/* ------------------------------------------------------------------------- HOME PAGE --------------------------------------------------------------------- */	
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------- */	
+
+.home-main-container {
+	display: grid;
+	grid-template-areas:
+		"greet greet recents"
+		"igpost1 igpost2 recents";
+	grid-template-columns: repeat(auto-fit, minmax(1fr 1fr 18rem));
+	grid-template-rows: 38% 1fr;
+	gap: 25px;
+	padding: 50px 50px 50px 50px;
+	box-sizing: border-box;
+	background-color: #d0d0d0;
+	align-content: center;
+	justify-content: center;
+	margin-left: 18%;
+	margin-right: 18%;}
+
+/* ------------------- GREETINGS SECTION ------------------ */
+
+.greet {
+	grid-area: greet;
+	padding-left: 20px;
+	min-width: 500px;
+	max-width: 675px;
+	background-color: #f5f5f5;
+	color: #525252;
+	line-height: 24px;
+	font-size: 18px;
+	text-align: left;}
+
+.greet b {
+	color: #8a2eb7;
+	-webkit-animation-name: glow;
+    -webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate-reverse;}
+
+.greet .wiz {
+	float: right;
+	position: relative;
+	width: 216px;
+	top: -116px;
+	padding-top: 0px;
+	webkit-shape-outside: url(images/wizardcard.png); /* prefix required in 2018 */
+	shape-outside: url(images/wizardcard.png);}
+	
+.greet a img {
+	display: block;
+	width: 90px;
+	transition: 0.3s ease-in-out;}
+
+.greet a img:hover {
+	display: block;
+	width: 100px;
+	transition: 0.3s ease-in-out;}
+	
+/* ------------------ FEATURED WORKS SIDEBAR ------------------ */
+
+.feat {
+	position: relative;
+	display: flex;
+	grid-area: recents;
+	flex-direction: column;
+	height: 45rem;
+	padding: 25px;
+	padding-top: 45px;
+	gap: 15px;
+	background:  #f5f5f5;}
+
+.feat h1 { 
+	position: absolute;
+	top: -45px;
+	width: 200px;
+	font-family: Anton;
+	font-weight: normal;
+	font-size: 30px;
+	padding: 3px 8px 3px 8px;
+	color: 	white;
+	align-self: center;
+	background-color: #303030;
+	border-radius: 16px;
+	box-shadow: 2px 2px 6px #4a4a4a;
+	-webkit-animation-name: zoom;
+    -webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate-reverse;}
+	
+.feat-card {
+	display: flex;
+	flex-direction: column;
+	background: #d0d0d0;
+	width: 12em;
+	height: 14.5em;
+	text-decoration: none;
+	border-radius: 10px;
+	align-self: center;
+	justify-self: center;
+	transition: 0.1s ease-in-out;}
+	
+.feat-card:hover {
+	box-shadow: 2px 2px 6px #969696 inset;
+	transition: 0.1s ease-in-out;}
+	
+.feat-card p {
+	padding-bottom: 2px;
+	font-size: 23px;
+	font-weight: bold;
+	color: #525252;
+	line-height: 0;}
+
+/* ------------------ CARD 1 ------------------ */
+
+.card-img1 {
+	background-image: url(images/card_slippy.png);
+	background-position: center;
+	background-size: 100%;
+	width: 100%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.card-img1:hover {
+	background-image: url(images/card_slippy.png);
+	background-position: center;
+	background-size: 105%;
+	transition: 0.1s ease-in-out;
+	box-shadow: 2px 2px 6px #616161 inset;}
+
+/* ------------------ CARD 2 ------------------ */
+
+.card-img2 {
+	background-image: url(images/card_kyl.png);
+	background-position: center;
+	background-size: 100%;
+	width: 100%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.card-img2:hover {
+	background-image: url(images/card_kyl.png);
+	background-position: center;
+	background-size: 105%;
+	transition: 0.1s ease-in-out;
+	box-shadow: 2px 2px 6px #616161 inset;}
+
+/* ------------------ CARD 3 ------------------ */
+
+.card-img3 {
+	background-image: url(images/afterdark.png);
+	background-position: center top;
+	background-size: 100%;
+	width: 100%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.card-img3:hover {
+	background-image: url(images/afterdark.png);
+	background-position: center top;
+	background-size: 105%;
+	transition: 0.1s ease-in-out;
+	box-shadow: 2px 2px 6px #616161 inset;}
+
+	
+/* ----------------------- INSTAGRAM POST CARDS ------------------------ */
+
+/* ------------------ IG POST 1 ------------------ */
+
+.igpost1 {
+	grid-area: igpost1;
+	background-color: #f5f5f5;
+	position: relative;
+	padding: 20px;
+	display: flex;
+	min-width: 230px;
+	max-width: 290px;
+	background-image: url(images/givethanks.png);
+	background-position: center;
+	background-size: 138%;
+	align-items: center;
+	justify-content: center;
+	border-radius: 25px;
+	transition: 0.2s ease-in-out;
+	text-decoration: none;}
+	
+.igpost1:hover {
+	background-image: url(images/givethanks.png);
+	background-position: center;
+	background-size: 150%;
+	transition: 0.2s ease-in-out;}
+	
+.igpost1 h1 {
+	color: white;
+	font-size: 34px;
+	text-align: center;
+	text-shadow: 0px 0px 10px black;}
+
+/* ------------------ IG POST 2 ------------------ */
+
+.igpost2 {
+	grid-area: igpost2;
+	background-color: #f5f5f5;
+	position: relative;
+	padding: 20px;
+	display: flex;
+	min-width: 230px;
+	max-width: 290px;
+	background-image: url(images/roll22.png);
+	background-position: center;
+	background-size: 138%;
+	align-items: center;
+	justify-content: center;
+	border-radius: 25px;
+	transition: 0.2s ease-in-out;
+	text-decoration: none;}
+	
+.igpost2:hover {
+	background-image: url(images/roll22.png);
+	background-position: center;
+	background-size: 150%;
+	transition: 0.2s ease-in-out;}
+	
+.igpost2 h1 {
+	color: white;
+	font-size: 34px;
+	text-align: center;
+	text-shadow: 0px 0px 10px black;}
+	
+.igpost1 img, .igpost2 img {
+	position: absolute;
+	padding: 20px;
+	left: 0;
+	bottom: 0;
+	display: block;
+	width: 75px;
+	opacity: 0.25;}
+	
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */		
+/* ------------------------------------------------------------------------- WORKS PAGE --------------------------------------------------------------------- */	
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* ------------------ PROMOTIONAL FLYER GALLERY ------------------ */
+
+.promo-container {
+	padding: 2rem 5%;
+	box-sizing: border-box;
+	margin-left: 10%;
+	margin-right: 10%;}
+
+.promo-container .promo-img {
+	columns: 15rem 3;
+	column-gap: 1.5%;
+	margin-top: 25px;	}
+
+.promo-img img {
+	width: 100%;
+	margin-bottom: 1rem;
+	border-radius: 0.5rem;
+	transition: 0.18s ease-in-out;}
+	
+.promo-container .promo-img img:hover {
+	transform: scale(1.04);
+	transition: 0.18s ease-in-out;}
+
+.anim-container {
+	padding: 2rem 5%;
+	box-sizing: border-box;
+	margin-left: 10%;
+	margin-right: 10%;}
+
+.anim-container .anim-vid {
+	columns: 15rem 3;
+	column-gap: 1.5%;
+	margin-top: 2%;}
+
+.anim-vid video {
+	width: 90%;
+	margin-bottom: 1rem;
+	border-radius: 0.5rem;
+	transition: 0.18s ease-in-out;}
+
+.promo-flyers {
+	padding-bottom: 2px;
+	font-family: Anton;
+	font-size: 44px;
+	letter-spacing: 0.3px;
+	line-height: 0;
+	margin: auto;
+	height: 18px;
+	width: 380px;
+	padding: 32px 4px 11px 4px;
+	color: white;
+	background-color: #303030;
+	border-radius: 15px;
+	box-shadow: 0px 2px 4px #616161;
+	-webkit-animation-name: zoom;
+    -webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate-reverse;}
+
+/*<div class="anim-container">
+			<div class="promo-flyers">ANIMATIONS</div>
+			<div class="anim-vid">
+			
+				<video controls loop>
+					<source src="images/knucklesandwich.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video> 
+				<video controls loop>
+					<source src="images/TraditionalSittinginChair_BrunoPontes.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video> 
+				
+			</div>
+		</div> 
+*/
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------- */		
+/* -------------------------------------------------------------------------- SHOP PAGE ------------------------------------------------------------------------ */	
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.shop-main-container {
+	display: grid;
+	grid-template-areas:
+		"item1 item2 item3"
+		"item4 item5 item6"
+		"item7 item8 item9";
+	grid-template-columns: auto auto auto;
+	grid-template-rows: auto auto auto;
+	margin: 50px 50px 50px 50px;
+	background-color: #f5f5f5;
+	align-content: center;
+	justify-content: center;
+	margin: auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	gap: 25px;
+	width: 46rem;
+	height: 56rem;}
+
+.name-link {
+	color: #6b6b6b;
+	font-size: 24px;
+	font-weight: bold;}
+	
+.name-link:hover {
+	color: teal;}
+	
+.name-link p {
+	font-size: 16px;
+	font-weight: light;}
+	
+.name-link {
+	text-decoration: none;
+	line-height: 0;
+	color: #525252;}
+
+.shop-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background: #d0d0d0;
+	width: 11.5rem;
+	height: 11.5rem;
+	text-decoration: none;
+	border-radius: 10px;
+	margin-bottom: 16px;
+	transition: 0.1s ease-in-out;}
+	
+.shop-card:hover {
+	transition: 0.1s ease-in-out;}
+	
+.shop-card p {
+	padding-bottom: 2px;
+	font-size: 27px;
+	font-weight: bold;
+	line-height: 0;
+	font-style: italic;}
+	
+.new {
+	position: absolute;
+	font-weight: bold;
+	font-size: 24px;
+	text-align: center;
+	height: 20px;
+	width: 60px;
+	top: -45px;
+	right: -10px;
+	padding: 20px 10px 15px 6px;
+	color: white;
+	background-color: red;
+	border-radius: 15px;
+	-webkit-transform: rotate(15deg);
+	-webkit-animation-name: new;
+    -webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate-reverse;}
+	
+/* ------------------ SHOP CARD 1 ------------------ */
+
+.item1 {
+	grid-area: item1;}
+
+.shop-img1 {
+	background-image: url(images/shop_invertdog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img1:hover {
+	background-image: url(images/shop_invertdog.gif);
+	background-position: center;
+	background-size: 115%;
+	transition: 0.1s ease-in-out;}
+
+/* ------------------ SHOP CARD 2 ------------------ */
+
+.item2 {
+	grid-area: item2;}
+
+.shop-img2 {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img2:hover {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 115%;
+transition: 0.1s ease-in-out;}
+
+/* ------------------ SHOP CARD 3 ------------------ */
+
+.item3 {
+	grid-area: item3;}
+
+.shop-img3 {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img3:hover {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 115%;
+	transition: 0.1s ease-in-out;}
+	
+/* ------------------ SHOP CARD 4 ------------------ */
+
+.item4 {
+	grid-area: item4;}
+
+.shop-img4 {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img4:hover {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 115%;
+	transition: 0.1s ease-in-out;}
+
+/* ------------------ SHOP CARD 5 ------------------ */
+
+.item5 {
+	grid-area: item5;}
+
+.shop-img5 {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img5:hover {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 115%;
+	transition: 0.1s ease-in-out;}
+
+/* ------------------ SHOP CARD 6 ------------------ */
+
+.item6 {
+	grid-area: item6;}
+
+.shop-img6 {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img6:hover {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 115%;
+	transition: 0.1s ease-in-out;}
+	
+/* ------------------ SHOP CARD 7 ------------------ */
+
+.item7 {
+	grid-area: item7;}
+
+.shop-img7 {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img7:hover {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 115%;
+	transition: 0.1s ease-in-out;}
+
+/* ------------------ SHOP CARD 8 ------------------ */
+
+.item8 {
+	grid-area: item8;}
+
+.shop-img8 {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img8:hover {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 115%;
+	transition: 0.1s ease-in-out;}
+	
+/* ------------------ SHOP CARD 9 ------------------ */
+
+.item9 {
+	grid-area: item9;}
+
+.shop-img9 {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img9:hover {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 115%;
+	transition: 0.1s ease-in-out;}
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */		
+/* ---------------------------------------------------------------------- ABOUT PAGE ------------------------------------------------------------------------ */	
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */	
+
+.abt-me-container {
+	display: grid;
+	grid-template-areas:
+		"wiz-img abt-me capabilities"
+		"wiz-img abt-me programs";
+	grid-template-columns: repeat(auto-fit, minmax(1fr 22rem 12rem));
+	grid-template-rows: 28% 1fr;
+	gap: 25px;
+	padding: 50px 50px 50px 50px;
+	height: 50rem;
+	box-sizing: border-box;
+	align-content: center;
+	justify-content: center;
+	margin-left: 18%;
+	margin-right: 18%;}
+	
+.abt-me-container p {
+	font-size: 18px;
+	text-align: left;
+	color: #525252;}
+	
+.abt-me-container h1 {
+	font-size: 27px;
+	line-height: 20px;
+	font-weight: bold;
+	text-align: left;
+	color: #525252;}	
+	
+.abt-me-container h1:before {
+	content: '\2727' '\0020';}
+	
+.abt-me a img {
+	display: block;
+	width: 125px;
+	float: right;
+	transition: 0.3s ease-in-out;}
+
+.abt-me a img:hover {
+	display: block;
+	width: 135px;
+	transition: 0.3s ease-in-out;}
+	
+	
+/* ----------------- IMAGE SECTION ----------------- */
+
+.wiz-img {
+	position: relative;
+	grid-area: wiz-img;}	
+	
+.wiz-img img {
+	height: 100%;
+	grid-area: wiz-img;
+	border-radius: 10px 10px 10px 10px;}
+
+.wiz-fg-img img {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 29.5rem;
+	height: 44.5rem;
+	border-radius: 10px 10px 10px 10px;}
+	
+/* ------------------ ABOUT ME ------------------ */
+	
+.abt-me {
+	grid-area: abt-me;
+	background: white;
+	max-width: 25rem;
+	min-width: 21.5rem;
+	text-align: left;
+	padding: 0px 15px 0px 15px;}
+	
+.abt-me h3 {
+	line-height: 30px;
+	font-size: 25px;
+	color: #525252;
+	margin-top: 15px;}
+	
+.abt-me b {
+	color: #8a2eb7;
+	-webkit-animation-name: glow;
+    -webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate-reverse;}
+
+/* ------------------ CAPABILITIES ------------------ */
+
+.capab {
+	position: relative;
+	grid-area: capabilities;
+	background: white;
+	width: 11rem;
+	padding: 20px;}
+	
+.capab h2 { 
+	position: absolute;
+	width: 170px;
+	top: -25px;
+	margin: auto;
+	font-family: Anton;
+	font-weight: normal;
+	font-size: 30px;
+	color: 	white;
+	align-self: center;
+	background-color: #303030;
+	border-radius: 16px;
+	box-shadow: 2px 2px 6px #4a4a4a;
+	-webkit-animation-name: zoom;
+    -webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate-reverse;}
+	
+/* ------------------ PROGRAMS ------------------ */
+
+.programs h2 { 
+	position: absolute;
+	width: 145px;
+	top: -25px;
+	margin: auto;
+	margin-left: 12px;
+	font-family: Anton;
+	font-weight: normal;
+	font-size: 30px;
+	color: 	white;
+	align-self: center;
+	background-color: #303030;
+	border-radius: 16px;
+	box-shadow: 2px 2px 6px #4a4a4a;
+	-webkit-animation-name: zoom;
+    -webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate-reverse;}
+
+.programs {
+	position: relative;
+	margin-top: 25px;
+	grid-area: programs;
+	width: 11rem;
+	padding: 20px;
+	background-image: linear-gradient(to bottom, #f5f5f5, #d0d0d0);}
+	
+.programs b {
+	font-size: 25px;
+	line-height: 40px;
+	font-weight: bold;
+	text-align: left;
+	color: #868686;}
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */		
+/* ---------------------------------------------------------------------- SERVICES PAGE ------------------------------------------------------------------------ */	
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */	
+
+.wip {
+	align-self: center;
+	vertical-align: middle;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background-color: #f5f5f5;
+	width: 46rem;
+	height: 40rem;
+	margin-right: 10%;
+	margin-left: 10%;}
+	
+.wip img {
+	width: 16.5rem;}
+
+.wip img, .wip h1 {
+	color: #d0d0d0;
+	position: relative;
+	line-height: 0;
+	font-size: 22px;
+	margin: 0;
+	top: 8rem;}
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */		
+/* ---------------------------------------------------------------------- CONTACT PAGE ------------------------------------------------------------------------ */	
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */	
+
+.contact-container {
+	position: relative;
+	box-sizing: border-box;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 32px;}
+
+.contact-form {
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	padding: 25px;
+	margin-bottom: 50px;
+	background-color: white;
+	text-align: left;
+	justify-content: center;
+	margin-right: 14%;
+	margin-left: 14%;}
+	
+form {
+	width: auto;
+	box-sizing: content-box;
+	width: 100%;}
+	
+label { 
+	font-size: 24px;
+	font-family: Anton;
+	color: #525252}
+	
+input, textarea {
+	font-size: 18px;
+	color: #525252;}
+
+select {
+	font-size: 18px;
+	color: #525252;}
+	
+.contact-container img {
+	position: absolute;
+	width: 85px;
+	right: 200px;
+	bottom: 65px;
+	z-index: 100;}
+
+@keyframes contact {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+.contact-title {
+	font-family: Anton;
+	font-size: 44px;
+	letter-spacing: 0.3px;
+	margin: auto;
+	margin-bottom: 25px;
+	line-height: 0;
+	top: 0px;
+	height: 18px;
+	width: 300px;
+	padding: 32px 4px 11px 4px;
+	color: white;
+	background-color: #303030;
+	border-radius: 15px;
+	box-shadow: 0px 2px 4px #616161;
+	-webkit-animation-name: contact;
+    -webkit-animation-duration: 1.5s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate-reverse;}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */		
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */	
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */	
+@media (max-width: 767px) { /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */		
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */	
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */	
+
+/* ---------------------------------------------------- HEADER ---------------------------------------------------- */
+
+header {
+	background-color: #303030;
+	padding-top: 0.3rem;}
+
+header img {
+	position: relative;
+	top: 16px;
+	max-width: 500px;}
+
+/* ---------------------------------------------------- NAV BAR ---------------------------------------------------- */
+.navbar {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	background-color: #868686;}
+
+.navbar > a {
+	padding: 0.2rem;
+	padding-top: 1rem;
+	font-family: Anton;
+	font-size: 2em;
+	text-align: center;
+	color: #525252;}
+	
+.navbar div:hover {
+	filter: brightness(60%);}
+
+/* ------------------ HOME BUTTON ------------------ */	
+	
+.home-nav {
+	background-image: url(images/nav_home.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 5.1rem;
+	height: 2rem;}
+	
+/* ------------------ WORKS BUTTON ------------------ */	
+	
+.works-nav {
+	background-image: url(images/nav_works.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 6rem;
+	height: 1.8rem;}
+	
+/* ------------------ SHOP BUTTON ------------------ */	
+	
+.shop-nav {
+	background-image: url(images/nav_shop.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 4.7rem;
+	height: 2rem;}
+	
+/* ------------------ ABOUT BUTTON ------------------ */	
+
+.about-nav {
+	background-image: url(images/nav_about.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 5.4rem;
+	height: 1.8rem;}
+
+/* ------------------ SERVICES BUTTON ------------------ */	
+	
+.services-nav {
+	background-image: url(images/nav_services.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 7.2rem;
+	height: 2.06rem;}
+	
+/* ------------------ CONTACT BUTTON ------------------ */	
+	
+.contact-nav {
+	background-image: url(images/nav_contact.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 7.1rem;
+	height: 2.2rem;}
+	
+a img {
+	display: inline-block;
+	width: 140px;}
+	
+/* ---------------------------------------------------- FOOTER ---------------------------------------------------- */
+footer {
+	position: relative;
+	width: 100%;
+	background-color: #868686;
+	margin-top: auto;}
+	
+.ftr-row {
+	padding-top: 10px;
+	height: 200px;
+	gap: 10px;
+	font-size: 12px;}
+
+.ftr-col-left {
+	margin: auto;
+	align-self: center;
+	flex-basis: 100%;}
+	
+.ftr-col-left img {
+	width: 13rem;
+	height: auto;
+	-webkit-animation-name: contact;
+    -webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate-reverse;}
+	
+.soc-navbar {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;}
+
+.soc-navbar a img {
+	padding-top: 10px;
+	width: 4rem;
+	height: auto;
+	-webkit-animation-name: none;}
+	
+.soc-navbar a img:hover {
+	filter: brightness(70%);}
+	
+.soc-navbar a img:active {
+	filter: brightness(70%);}
+
+.home-main-container {
+	display: grid;
+	grid-template-areas:
+		"greet greet recents"
+		"igpost1 igpost2 recents";
+	grid-template-columns: repeat(auto-fit, minmax(1fr 1fr 18rem));
+	grid-template-rows: 38% 1fr;
+	gap: 25px;
+	padding: 50px 50px 50px 50px;
+	box-sizing: border-box;
+	background-color: #d0d0d0;
+	align-content: center;
+	justify-content: center;
+	margin-left: 18%;
+	margin-right: 18%;}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------- */		
+/* ------------------------------------------------------------------------- HOME PAGE --------------------------------------------------------------------- */	
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------- */	
+
+.home-main-container {
+	display: grid;
+	grid-template-areas:
+		"greet greet recents"
+		"igpost1 igpost2 recents";
+	grid-template-columns: repeat(auto-fit, minmax(1fr 1fr 18rem));
+	grid-template-rows: 38% 1fr;
+	gap: 25px;
+	padding: 50px 50px 50px 50px;
+	box-sizing: border-box;
+	background-color: #d0d0d0;
+	align-content: center;
+	justify-content: center;
+	margin-left: 18%;
+	margin-right: 18%;}
+
+/* ------------------- GREETINGS SECTION ------------------ */
+
+.greet {
+	grid-area: greet;
+	padding-left: 20px;
+	min-width: 500px;
+	max-width: 675px;
+	background-color: #f5f5f5;
+	color: #525252;
+	line-height: 24px;
+	font-size: 18px;
+	text-align: left;}
+
+.greet b {
+	color: #8a2eb7;
+	-webkit-animation-name: glow;
+    -webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate-reverse;}
+
+.greet .wiz {
+	float: right;
+	position: relative;
+	width: 216px;
+	top: -116px;
+	padding-top: 0px;
+	webkit-shape-outside: url(images/wizardcard.png); /* prefix required in 2018 */
+	shape-outside: url(images/wizardcard.png);}
+	
+.greet a img {
+	display: block;
+	width: 90px;
+	transition: 0.3s ease-in-out;}
+
+.greet a img:hover {
+	display: block;
+	width: 100px;
+	transition: 0.3s ease-in-out;}
+	
+/* ------------------ FEATURED WORKS SIDEBAR ------------------ */
+
+.feat {
+	position: relative;
+	display: flex;
+	grid-area: recents;
+	flex-direction: column;
+	height: 45rem;
+	padding: 25px;
+	padding-top: 45px;
+	gap: 15px;
+	background:  #f5f5f5;}
+
+.feat h1 { 
+	position: absolute;
+	top: -45px;
+	width: 200px;
+	font-family: Anton;
+	font-weight: normal;
+	font-size: 30px;
+	padding: 3px 8px 3px 8px;
+	color: 	white;
+	align-self: center;
+	background-color: #303030;
+	border-radius: 16px;
+	box-shadow: 2px 2px 6px #4a4a4a;
+	-webkit-animation-name: zoom;
+    -webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate-reverse;}
+	
+.feat-card {
+	display: flex;
+	flex-direction: column;
+	background: #d0d0d0;
+	width: 12em;
+	height: 14.5em;
+	text-decoration: none;
+	border-radius: 10px;
+	align-self: center;
+	justify-self: center;
+	transition: 0.1s ease-in-out;}
+	
+.feat-card:hover {
+	box-shadow: 2px 2px 6px #969696 inset;
+	transition: 0.1s ease-in-out;}
+	
+.feat-card p {
+	padding-bottom: 2px;
+	font-size: 23px;
+	font-weight: bold;
+	color: #525252;
+	line-height: 0;}
+
+/* ------------------ CARD 1 ------------------ */
+
+.card-img1 {
+	background-image: url(images/card_slippy.png);
+	background-position: center;
+	background-size: 100%;
+	width: 100%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.card-img1:hover {
+	background-image: url(images/card_slippy.png);
+	background-position: center;
+	background-size: 105%;
+	transition: 0.1s ease-in-out;
+	box-shadow: 2px 2px 6px #616161 inset;}
+
+/* ------------------ CARD 2 ------------------ */
+
+.card-img2 {
+	background-image: url(images/card_kyl.png);
+	background-position: center;
+	background-size: 100%;
+	width: 100%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.card-img2:hover {
+	background-image: url(images/card_kyl.png);
+	background-position: center;
+	background-size: 105%;
+	transition: 0.1s ease-in-out;
+	box-shadow: 2px 2px 6px #616161 inset;}
+
+/* ------------------ CARD 3 ------------------ */
+
+.card-img3 {
+	background-image: url(images/afterdark.png);
+	background-position: center top;
+	background-size: 100%;
+	width: 100%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.card-img3:hover {
+	background-image: url(images/afterdark.png);
+	background-position: center top;
+	background-size: 105%;
+	transition: 0.1s ease-in-out;
+	box-shadow: 2px 2px 6px #616161 inset;}
+
+	
+/* ----------------------- INSTAGRAM POST CARDS ------------------------ */
+
+/* ------------------ IG POST 1 ------------------ */
+
+.igpost1 {
+	grid-area: igpost1;
+	background-color: #f5f5f5;
+	position: relative;
+	padding: 20px;
+	display: flex;
+	min-width: 230px;
+	max-width: 290px;
+	background-image: url(images/givethanks.png);
+	background-position: center;
+	background-size: 138%;
+	align-items: center;
+	justify-content: center;
+	border-radius: 25px;
+	transition: 0.2s ease-in-out;
+	text-decoration: none;}
+	
+.igpost1:hover {
+	background-image: url(images/givethanks.png);
+	background-position: center;
+	background-size: 150%;
+	transition: 0.2s ease-in-out;}
+	
+.igpost1 h1 {
+	color: white;
+	font-size: 34px;
+	text-align: center;
+	text-shadow: 0px 0px 10px black;}
+
+/* ------------------ IG POST 2 ------------------ */
+
+.igpost2 {
+	grid-area: igpost2;
+	background-color: #f5f5f5;
+	position: relative;
+	padding: 20px;
+	display: flex;
+	min-width: 230px;
+	max-width: 290px;
+	background-image: url(images/roll22.png);
+	background-position: center;
+	background-size: 138%;
+	align-items: center;
+	justify-content: center;
+	border-radius: 25px;
+	transition: 0.2s ease-in-out;
+	text-decoration: none;}
+	
+.igpost2:hover {
+	background-image: url(images/roll22.png);
+	background-position: center;
+	background-size: 150%;
+	transition: 0.2s ease-in-out;}
+	
+.igpost2 h1 {
+	color: white;
+	font-size: 34px;
+	text-align: center;
+	text-shadow: 0px 0px 10px black;}
+	
+.igpost1 img, .igpost2 img {
+	position: absolute;
+	padding: 20px;
+	left: 0;
+	bottom: 0;
+	display: block;
+	width: 75px;
+	opacity: 0.25;}
+	
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------- */		
+/* -------------------------------------------------------------------------- SHOP PAGE ------------------------------------------------------------------------ */	
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+	
+/* ------------------ SHOP CARD 1 ------------------ */
+
+.item1 {
+	grid-area: item1;}
+
+.shop-img1 {
+	background-image: url(images/shop_invertdog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img1:hover {
+	background-image: url(images/shop_invertdog.gif);
+	background-position: center;
+	background-size: 115%;
+	transition: 0.1s ease-in-out;}
+
+/* ------------------ SHOP CARD 2 ------------------ */
+
+.item2 {
+	grid-area: item2;}
+
+.shop-img2 {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img2:hover {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 115%;
+transition: 0.1s ease-in-out;}
+
+/* ------------------ SHOP CARD 3 ------------------ */
+
+.item3 {
+	grid-area: item3;}
+
+.shop-img3 {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img3:hover {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 115%;
+	transition: 0.1s ease-in-out;}
+	
+/* ------------------ SHOP CARD 4 ------------------ */
+
+.item4 {
+	grid-area: item4;}
+
+.shop-img4 {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img4:hover {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 115%;
+	transition: 0.1s ease-in-out;}
+
+/* ------------------ SHOP CARD 5 ------------------ */
+
+.item5 {
+	grid-area: item5;}
+
+.shop-img5 {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img5:hover {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 115%;
+	transition: 0.1s ease-in-out;}
+
+/* ------------------ SHOP CARD 6 ------------------ */
+
+.item6 {
+	grid-area: item6;}
+
+.shop-img6 {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img6:hover {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 115%;
+	transition: 0.1s ease-in-out;}
+	
+/* ------------------ SHOP CARD 7 ------------------ */
+
+.item7 {
+	grid-area: item7;}
+
+.shop-img7 {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img7:hover {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 115%;
+	transition: 0.1s ease-in-out;}
+
+/* ------------------ SHOP CARD 8 ------------------ */
+
+.item8 {
+	grid-area: item8;}
+
+.shop-img8 {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img8:hover {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 115%;
+	transition: 0.1s ease-in-out;}
+	
+/* ------------------ SHOP CARD 9 ------------------ */
+
+.item9 {
+	grid-area: item9;}
+
+.shop-img9 {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 100%;
+	width: 92%;
+	height: 18em;
+	border-radius: 10px 10px 0px 0px;
+	transition: 0.1s ease-in-out;}	
+	
+.shop-img9:hover {
+	background-image: url(images/shop_dog.gif);
+	background-position: center;
+	background-size: 115%;
+	transition: 0.1s ease-in-out;}
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */		
+/* ---------------------------------------------------------------------- SERVICES PAGE ------------------------------------------------------------------------ */	
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */	
+
+.wip {
+	align-self: center;
+	vertical-align: middle;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background-color: #f5f5f5;
+	width: 85%;
+	height: 40rem;
+	margin-right: 10%;
+	margin-left: 10%;}
+	
+.wip img {
+	width: 16.5rem;}
+
+.wip img, .wip h1 {
+	color: #d0d0d0;
+	position: relative;
+	line-height: 0;
+	font-size: 22px;
+	margin: 0;
+	top: 8rem;}
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */		
+/* ---------------------------------------------------------------------- CONTACT PAGE ------------------------------------------------------------------------ */	
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */	
+
+.contact-container {
+	position: relative;
+	box-sizing: border-box;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 32px;}
+
+.contact-form {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	padding: 25px;
+	margin-bottom: 50px;
+	background-color: white;
+	text-align: left;
+	justify-content: center;}
+	
+form {
+	box-sizing: content-box;
+	width: 100%;}
+	
+label { 
+	font-size: 16px;
+	font-family: Anton;
+	color: #525252}
+	
+input, textarea {
+	font-size: 12px;
+	color: #525252;}
+
+select {
+	font-size: 18px;
+	color: #525252;}
+	
+.contact-container img {
+	position: absolute;
+	margin-right: 0;
+	width: 0px;
+	right: 0;
+	bottom: 0;
+	z-index: 100;}
+
+@keyframes contact {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+.contact-title {
+	font-family: Anton;
+	font-size: 44px;
+	letter-spacing: 0.3px;
+	margin: auto;
+	margin-bottom: 25px;
+	line-height: 0;
+	top: 0px;
+	height: 18px;
+	width: 300px;
+	padding: 32px 4px 11px 4px;
+	color: white;
+	background-color: #303030;
+	border-radius: 15px;
+	box-shadow: 0px 2px 4px #616161;
+	-webkit-animation-name: contact;
+    -webkit-animation-duration: 1.5s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate-reverse;}
+	
+/* ---------------------------------------------------- EXTRA ---------------------------------------------------- */
+
+.ratton {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+    min-width: 0px; 
+    min-height: 0px; 
+    background-image: url(images/rat.png); 
+    background-size: cover;
+    transition: background-image 0.1s ease-in-out;
+	z-index: 100;}
+	
+.ratton:hover {
+	background-image: url(images/ratspinning.gif);}
+}
